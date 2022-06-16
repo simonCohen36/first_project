@@ -39,7 +39,7 @@ const clickHandler = (e) => {
     } else {
         clickCount = 0
         slot.innerHTML = BOARD[slot.id]
-        if (BOARD[slot.id] === firstElem.innerHTML) {
+        if (slot.innerHTML === firstElem.innerHTML) {
             slot.style.background = '#009300'
             firstElem.style.background = '#009300'
             slot.removeEventListener('click', clickHandler)
