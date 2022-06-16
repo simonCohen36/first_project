@@ -37,6 +37,7 @@ const clickHandler = (e) => {
         firstElem = slot
         slot.style.background = '#5f85ad'
     } else {
+        clickCount = 0
         slot.innerHTML = BOARD[slot.id]
         if (BOARD[slot.id] === firstElem.innerHTML) {
             slot.style.background = '#009300'
