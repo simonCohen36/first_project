@@ -25,31 +25,34 @@ const init = () => {
     let i = 0
     slots.forEach(slot => {
         BOARD[slot.id] = mixedValues[i++]
-        slot.addEventListener('click', () => {
-            clickCount++
-            if (clickCount === 1) {
-                slot.innerHTML = BOARD[slot.id]
-                firstElem = slot
-                slot.style.background = '#5f85ad'
-            } else {
-                slot.innerHTML = BOARD[slot.id]
-                if (BOARD[slot.id] === firstElem.innerHTML) {
-                    slot.style.background = '#009300'
-                    firstElem.style.background = '#009300'
-                    slot.removeEventListener('click')
-                    firstElem.removeEventListener('click')
-                } else {
-                    slot.style.background = '#f31e1e'
-                    setTimeout(() => {
-                        slot.style.background = '#00008BFF'
-                        firstElem.style.background = '#00008BFF'
-                        slot.innerHTML = ''
-                        firstElem.innerHTML = ''
-                    })
-                }
-            }
-        })
+        slot.addEventListener('click', clickHandler)
     })
+}
+
+const clickHandler = (e) => {
+    const slot = e.target
+    clickCount++
+    if (clickCount === 1) {
+        slot.innerHTML = BOARD[slot.id]
+        firstElem = slot
+        slot.style.background = '#5f85ad'
+    } else {
+        slot.innerHTML = BOARD[slot.id]
+        if (BOARD[slot.id] === firstElem.innerHTML) {
+            slot.style.background = '#009300'
+            firstElem.style.background = '#009300'
+            slot.removeEventListener('click', clickHandler)
+            firstElem.removeEventListener('click', clickHandler)
+        } else {
+            slot.style.background = '#f31e1e'
+            setTimeout(() => {
+                slot.style.background = '#00008BFF'
+                firstElem.style.background = '#00008BFF'
+                slot.innerHTML = ''
+                firstElem.innerHTML = ''
+            })
+        }
+    }
 }
 
 init()
