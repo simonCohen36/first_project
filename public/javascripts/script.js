@@ -1,6 +1,7 @@
 const box = document.querySelector('.box')
 const slots = document.querySelectorAll('.slot')
 const PAIRS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+let BOARD = {}
 
 const handleClick = () => {
 
@@ -24,7 +25,7 @@ const init = () => {
 
     let i = 0
     slots.forEach(slot => {
-        slot.innerHTML = String(mixedValues[i++])
+        BOARD[slot.id] = mixedValues[i++]
         slot.addEventListener('click', handleClick)
     })
 }
