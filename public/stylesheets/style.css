@@ -1,11 +1,9 @@
 body {
     padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     margin: 0 auto;
 }
 
 a {
-    color: #00B7FF;
 }
 
 .box {
@@ -17,4 +15,10 @@ a {
     border: black solid 1px;
     height: 30px;
     width: 30px;
+    font-family: Consolas, serif;
+    font-size: 18px;
+    text-align: center;
+    vertical-align: text-bottom;
+    background-color: darkblue;
+    color: white;
 }
