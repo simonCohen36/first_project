@@ -2,10 +2,9 @@ const box = document.querySelector('.box')
 const slots = document.querySelectorAll('.slot')
 const PAIRS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 let BOARD = {}
+let clickCount = 0
+let firstElem
 
-const handleClick = () => {
-
-}
 
 const shuffleElements = () => {
     let elements = PAIRS.concat(PAIRS)
@@ -26,7 +25,30 @@ const init = () => {
     let i = 0
     slots.forEach(slot => {
         BOARD[slot.id] = mixedValues[i++]
-        slot.addEventListener('click', handleClick)
+        slot.addEventListener('click', () => {
+            clickCount++
+            if (clickCount === 1) {
+                slot.innerHTML = BOARD[slot.id]
+                firstElem = slot
+                slot.style.background = '#5f85ad'
+            } else {
+                slot.innerHTML = BOARD[slot.id]
+                if (BOARD[slot.id] === firstElem.innerHTML) {
+                    slot.style.background = '#009300'
+                    firstElem.style.background = '#009300'
+                    slot.removeEventListener('click')
+                    firstElem.removeEventListener('click')
+                } else {
+                    slot.style.background = '#f31e1e'
+                    setTimeout(() => {
+                        slot.style.background = '#00008BFF'
+                        firstElem.style.background = '#00008BFF'
+                        slot.innerHTML = ''
+                        firstElem.innerHTML = ''
+                    })
+                }
+            }
+        })
     })
 }
 
