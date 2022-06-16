@@ -1,5 +1,6 @@
 const box = document.querySelector('.box')
 const slots = document.querySelectorAll('.slot')
+const restart_btn = document.getElementById('restart-btn')
 const PAIRS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 let BOARD = {}
 let clickCount = 0
