@@ -65,4 +65,12 @@ hideCells = (slot) => {
     }, 0)
 }
 
+restart_btn.addEventListener('click', () => {
+    slots.forEach(slot => {
+        slot.innerHTML = ''
+        slot.style.background = '#00008BFF'
+    })
+    init()
+})
+
 init()
