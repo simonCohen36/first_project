@@ -21,7 +21,10 @@ const shuffleElements = () => {
 
 const init = () => {
     let mixedValues = shuffleElements()
+
+    let i = 0
     slots.forEach(slot => {
+        slot.innerHTML = String(mixedValues[i++])
         slot.addEventListener('click', handleClick)
     })
 }
