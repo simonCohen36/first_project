@@ -46,6 +46,7 @@ const clickHandler = (e) => {
             firstElem.removeEventListener('click', clickHandler)
         } else {
             slot.style.background = '#f31e1e'
+            firstElem.style.background = '#f31e1e'
 
             setTimeout(() => {
                 hideCells(slot)
