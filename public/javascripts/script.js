@@ -32,10 +32,10 @@ const init = () => {
 const clickHandler = (e) => {
     const slot = e.target
     clickCount++
+    slot.style.background = '#5f85ad'
     if (clickCount === 1) {
         slot.innerHTML = BOARD[slot.id]
         firstElem = slot
-        slot.style.background = '#5f85ad'
     } else {
         clickCount = 0
         slot.innerHTML = BOARD[slot.id]
@@ -46,14 +46,21 @@ const clickHandler = (e) => {
             firstElem.removeEventListener('click', clickHandler)
         } else {
             slot.style.background = '#f31e1e'
+
             setTimeout(() => {
-                slot.style.background = '#00008BFF'
-                firstElem.style.background = '#00008BFF'
-                slot.innerHTML = ''
-                firstElem.innerHTML = ''
-            })
+                hideCells(slot)
+            }, 2000)
         }
     }
+}
+
+hideCells = (slot) => {
+    setTimeout(() => {
+        slot.style.background = '#00008BFF'
+        firstElem.style.background = '#00008BFF'
+        slot.innerHTML = ''
+        firstElem.innerHTML = ''
+    }, 0)
 }
 
 init()
