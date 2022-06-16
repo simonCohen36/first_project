@@ -50,7 +50,7 @@ const clickHandler = (e) => {
 
             setTimeout(() => {
                 hideCells(slot)
-            }, 2000)
+            }, 1000)
         }
     }
 }
